@@ -21,9 +21,9 @@
                 <td><%= company.manager %></td>
                 <td><%= company.status %></td>
                 <td><%= company.terms %></td>
-                <td><%= link_to 'Show', company %></td>
-                <td><%= link_to 'Edit', edit_company_path(company) %></td>
-                <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Show', company, class: 'btn btn-mini btn-primary' %></td>
+                 <td><%= link_to 'Edit', edit_company_path(company), class: 'btn btn-mini btn-success' %></td>
+                 <td><%= link_to 'Destroy', company, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>

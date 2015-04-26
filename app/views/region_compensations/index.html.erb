@@ -1,0 +1,39 @@
+<h1>Listing region_compensations</h1>
+
+<div class="media">
+      <div class="media-body">
+
+       <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Region name</th>
+      <th>Country name</th>
+      <th>State</th>
+      <th>Number of employees</th>
+      <th>Salary total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @region_compensations.each do |region_compensation| %>
+      <tr>
+        <td><%= region_compensation.region_name %></td>
+        <td><%= region_compensation.country_name %></td>
+        <td><%= region_compensation.state %></td>
+        <td><%= region_compensation.number_of_employees %></td>
+        <td><%= region_compensation.salary_total %></td>
+        <td><%= link_to 'Show', region_compensation %></td>
+        <td><%= link_to 'Edit', edit_region_compensation_path(region_compensation) %></td>
+        <td><%= link_to 'Destroy', region_compensation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<br>
+
+<%= link_to 'New Region compensation', new_region_compensation_path %>

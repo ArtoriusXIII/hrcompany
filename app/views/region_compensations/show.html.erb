@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Region name:</strong>
+  <%= @region_compensation.region_name %>
+</p>
+
+<p>
+  <strong>Country name:</strong>
+  <%= @region_compensation.country_name %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @region_compensation.state %>
+</p>
+
+<p>
+  <strong>Number of employees:</strong>
+  <%= @region_compensation.number_of_employees %>
+</p>
+
+<p>
+  <strong>Salary total:</strong>
+  <%= @region_compensation.salary_total %>
+</p>
+
+<%= link_to 'Edit', edit_region_compensation_path(@region_compensation) %> |
+<%= link_to 'Back', region_compensations_path %>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  resources :region_compensations
+
+  resources :departments
+
   devise_for :users
   resources :employees do
     resources :accounts

@@ -1,0 +1,37 @@
+<%= form_for(@region_compensation) do |f| %>
+  <% if @region_compensation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@region_compensation.errors.count, "error") %> prohibited this region_compensation from being saved:</h2>
+
+      <ul>
+      <% @region_compensation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :region_name %><br>
+    <%= f.text_field :region_name %>
+  </div>
+  <div class="field">
+    <%= f.label :country_name %><br>
+    <%= f.text_field :country_name %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_employees %><br>
+    <%= f.text_field :number_of_employees %>
+  </div>
+  <div class="field">
+    <%= f.label :salary_total %><br>
+    <%= f.text_field :salary_total %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

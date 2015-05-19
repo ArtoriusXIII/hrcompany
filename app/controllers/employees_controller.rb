@@ -1,3 +1,6 @@
+require 'my_logger' 
+require 'employee_decorator'
+
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
@@ -24,7 +27,36 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(employee_params)
+   @employee = Employee.new()
+    
+    @employee.first_name = params[:employee][:first_name]
+    @employee.last_name = params[:employee][:last_name]
+    @employee.phone = params[:employee][:phone]
+    @employee.job_type = params[:employee][:job_type]
+    @employee.date_of_hire = params[:employee][:date_of_hire]
+     @employee.salary = params[:employee][:salary]
+    @employee.vacation_days = params[:employee][:vacation_days]
+    @employee.status = params[:employee][:status]
+    @employee.department = params[:employee][:department]
+  
+    
+    
+    #create instance
+    myEmployee = BasicEmployee.new()
+    
+    #add extra
+    if params[:employee][:request].to_s.length > 0 then
+      myEmployee = AnnualLeaveDecorator.new(myEmployee)
+    end
+    
+    #populate the description details
+    @employee.status = myEmployee.details
+    
+    # retrieve the instance/object of the MyLogger class 
+    logger = MyLogger.instance
+    logger.logInformation("A new employee requested: " + @employee.status)
+    
+	   
 
     respond_to do |format|
       if @employee.save

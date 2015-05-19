@@ -51,8 +51,10 @@
     <%= f.label :manager %><br>
     <%= f.text_field :manager %>
   </div>
-
-
+   <div class="field"> 
+  Annual leave request:
+  <%= check_box_tag 'employee[request]', 'request' %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
